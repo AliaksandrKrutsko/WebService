@@ -10,7 +10,7 @@ import java.util.Map;
 public class Request {
 
 
-    private String header;
+
     private InputStream input;
     private String uri = "/book.xml";
     private List<String> body;
@@ -95,7 +95,7 @@ public class Request {
         for (int j = 0; j < i; j++) {
             request.append((char) buffer[j]);
         }
-        System.out.println(request.toString());
+
         return request.toString().split("\r\n");
     }
 
@@ -104,6 +104,9 @@ public class Request {
         return str.substring(0, to);
     }
 
+    public Map<String, String> getHeaderFields() {
+        return headerFields;
+    }
 
 
 }

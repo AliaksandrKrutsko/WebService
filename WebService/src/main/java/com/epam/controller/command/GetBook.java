@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class GetBook {
+public class GetBook implements com.epam.controller.Executor {
 
 
     private static final int BUFFER_SIZE = 1024;
@@ -51,5 +51,6 @@ public class GetBook {
 
 
     }
+
 }
 

@@ -7,14 +7,15 @@ import java.io.IOException;
 
 public class Controller {
 
-    public void executeMethod(String method) throws IOException {
+    public Executor executeMethod(String method) throws IOException {
+
+        Executor executor = null;
 
         switch (method.toUpperCase()) {
             case "GET":
-                GetBook getBook = new GetBook();
-                getBook.execute();
+                executor = new GetBook();
                 break;
         }
-
+        return executor;
     }
 }

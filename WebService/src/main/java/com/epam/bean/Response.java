@@ -1,8 +1,8 @@
 package com.epam.bean;
 
 import com.epam.controller.Controller;
+import com.epam.controller.Executor;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
@@ -10,8 +10,7 @@ import java.util.Map;
 
 public class Response {
 
-    public static final String WEB_ROOT = System.getProperty("user.dir") + File.separator  + "webroot";
-    private static final int BUFFER_SIZE = 2048;
+
     private Map<String, String> requestHeaderFields;
     private Request request;
     private OutputStream output;
@@ -22,18 +21,17 @@ public class Response {
         requestHeaderFields = new HashMap<String, String>();
     }
 
-
-
-    public void send() throws IOException {
+    public void sendToController() throws IOException {
 
         String method = requestHeaderFields.get("Method");
         System.out.println(method);
         Controller controller = new Controller();
-        controller.executeMethod(method);
+        Executor executor = controller.executeMethod(method);
+        executor.execute();
 
     }
 
-    public void setRequest(Request request) {this.request=request;}
+    public void setRequest(Request request) {requestHeaderFields = request.getHeaderFields();}
 
 
 

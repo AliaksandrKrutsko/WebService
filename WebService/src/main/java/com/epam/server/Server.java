@@ -27,9 +27,8 @@ public class Server {
             request.parse();
             Response response = new Response(output);
             response.setRequest(request);
-            response.send();
+            response.sendToController();
             socket.close();
-
         }
     }
 }
