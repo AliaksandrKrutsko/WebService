@@ -14,6 +14,7 @@ public class Response {
     private Map<String, String> requestHeaderFields;
     private Request request;
     private OutputStream output;
+    private String response;
 
 
     public Response(OutputStream output) {
@@ -28,14 +29,12 @@ public class Response {
         Controller controller = new Controller();
         Executor executor = controller.executeMethod(method);
         executor.execute();
+        response = executor.execute();
+        output.write(response.getBytes());
 
     }
 
-    public void setRequest(Request request) {requestHeaderFields = request.getHeaderFields();}
-
-
-
-
-
-
+    public void setRequest(Request request) {
+        this.request=request;
+        requestHeaderFields = request.getHeaderFields();}
 }

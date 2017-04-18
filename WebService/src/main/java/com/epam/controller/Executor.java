@@ -5,6 +5,6 @@ import java.io.IOException;
 
 public interface Executor {
 
-    void execute() throws IOException;
+    String execute() throws IOException;
 
 }

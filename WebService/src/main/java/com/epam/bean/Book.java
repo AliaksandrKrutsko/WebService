@@ -29,4 +29,8 @@ public class Book implements Serializable {
     public String getAuthor() {return author;}
     public int getIsbn() {return isbn;}
 
+    public String toString() {
+        return "author: " + this.author + ", " + "name: " + this.name + ", " + "isbn: "
+                + this.isbn;
+    }
 }

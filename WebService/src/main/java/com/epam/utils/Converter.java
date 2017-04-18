@@ -1,24 +1,34 @@
 package com.epam.utils;
 
 
-import com.epam.bean.Book;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.io.IOException;
 
 public class Converter {
 
-    private final static String baseFile = "book.json";
+    private static ObjectMapper mapper;
 
-    public static void toJSON(Book book) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(new File(baseFile), book);
+    static {
+        mapper = new ObjectMapper();
+        mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
     }
 
-    public static Book fromJson() throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(new File(baseFile), Book.class);
+//    public static void toJSON(Book book) throws IOException {
+//        ObjectMapper mapper = new ObjectMapper();
+//        mapper.writeValue(new File(baseFile), book);
+//    }
+
+//    public static Book fromJson() throws IOException {
+//        ObjectMapper mapper = new ObjectMapper();
+//        return mapper.readValue(new File(baseFile), Book.class);
+//    }
+
+    public static String toJson(Object src) {
+        try {
+            return mapper.writeValueAsString(src);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage(), e);
+        }
     }
 
 }
