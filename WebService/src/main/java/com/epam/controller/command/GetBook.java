@@ -27,8 +27,8 @@ public class GetBook implements com.epam.controller.Executor {
         rp.setContentType("Content-Type");
 
         Book book;
-        BookMaker bookMaker = new BookMaker();
-        book = bookMaker.getBook(0);
+
+        book = BookMaker.getBook(0);
 
 
         body = Converter.toJson(book);
