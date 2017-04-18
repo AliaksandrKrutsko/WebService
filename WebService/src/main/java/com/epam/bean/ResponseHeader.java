@@ -46,10 +46,7 @@ public class ResponseHeader {
         for (Map.Entry<String, String> pair : responseMap.entrySet()) {
             String key = pair.getKey();
             String value = pair.getValue();
-//            if (key.equals("body")) {
-//                response += value;
-//            } else
-                response += key + value;
+            response += key + value;
         }
         return response;
 

@@ -14,6 +14,5 @@ public class BookMaker {
         return books.get(id);
     }
 
-    //public List<Book> getBooks() {return books;}
 
 }

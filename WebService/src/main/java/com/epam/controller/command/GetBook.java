@@ -11,10 +11,6 @@ import java.io.IOException;
 public class GetBook implements com.epam.controller.Executor {
 
 
-
-//    @GET
-//    @Path("/get")
-//    @Produces("application/json")
     public String execute() throws IOException {
 
 

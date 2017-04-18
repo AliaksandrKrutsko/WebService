@@ -12,17 +12,14 @@ public class Request {
 
 
     private InputStream input;
-    private String uri = "/book.xml";
     private List<String> body;
     private Map<String, String> headerFields;
-
 
     public Request(InputStream input) {
         this.input = input;
         body = new ArrayList<String>();
         headerFields = new HashMap<String, String>();
     }
-
 
     public void parse() {
 
@@ -42,24 +39,6 @@ public class Request {
         }
         headerFields.put("Method", getMethod(header.get(0).trim()));
 
-//        StringBuffer request = new StringBuffer(2048);
-//        int i;
-//        byte[] buffer = new byte[2048];
-//
-//        try {
-//            i = input.read(buffer);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            i = -1;
-//        }
-//
-//        for (int j = 0; j < i; j++) {
-//            request.append((char) buffer[j]);
-//        }
-//
-//        uri = parseUri(request.toString());
-
-
     }
 
     private String parseUri(String requestString) {
@@ -75,12 +54,6 @@ public class Request {
         return null;
     }
 
-    public String getUri() {return uri;}
-
-//    public String getMethod(String method) {
-//        method=method.substring(0, method.indexOf(" "));
-//        return method;
-//    }
 
     private String[] flushBuffer() {
         StringBuffer request = new StringBuffer(2048);
